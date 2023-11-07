@@ -1,6 +1,7 @@
 /****** General ***********/
 * {
     font-family: 'Raleway', sans-serif;
+    box-sizing: border-box;
 }
 
 :root {
@@ -13,19 +14,36 @@
     color: var(--main-color);
 }
 
+*::before,
+*::after{
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    display: flex;
-    justify-content: center;
+    padding: 0;
+    margin: 0;
 }
 
 .main-container {
     width: 100%;
     max-width: 1440px;
-    padding: 0 50px;
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
+h1 {
+    font-weight: 700;
+    font-size: 22px;
+}
+
+p {
+    font-weight: 400;
+    font-size: 16px;
+}
+
 a {
+    position: relative;
     color: inherit;
     text-decoration: none;
 }
@@ -58,6 +76,145 @@ a {
     color: var(--main-bg-color)
 }
 
+
+/****** Header ***********/
+.header {
+    height: 79px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-booki {
+    width: 61px;
+    height: 19px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 16px;
+    margin-left: 70px;
+    color: black;
+}
+
+.menu::after {
+    content:"";
+    position: absolute;
+    background-color: #0065FC;
+    height: 3px;
+    top: 0;
+    width: 0%;
+    left: 0;
+    transition: 0.2s;
+}
+
+.menu:hover {
+    color: #0065FC;
+}
+
+.menu:hover::after {
+    width: 100%;
+
+}
+
+/****** Recherche ***********/
+main .main-title {
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+main .description {
+    margin: 0;
+    padding-bottom: 30px;
+}
+
+.rechercher {
+    display: flex;
+    height: 49px;
+}
+
+.button-rechercher {
+    font-weight: 700;
+    font-size: 18px;
+    color: white;
+    background-color: #0065FC;
+    border-radius: 0px 15px 15px 0px;
+    border: none;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.fa-location-dot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: var(--main-bg-color);
+    width: 49px;
+    height: 49px;
+    border-radius: 15px 0px 0px 15px;
+}
+
+input {
+    border: none;
+    border-top: 1px solid var(--main-bg-color);
+    border-bottom: 1px solid var(--main-bg-color);
+    padding-left: 10px;
+}
+
+/****** Filtres ***********/
+.filtres {
+    display: flex;
+    align-items: center;
+}
+
+.filtres li { 
+    display: inline-block;
+    border:2px #D9D9D9 solid;
+    border-radius: 25px;
+    padding: 10px 20px 10px 20px;
+    margin-right: 20px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.filtres li:hover {
+    background-color: #0065FC;
+    color: white;
+}
+
+.picto-filtres {
+    padding-left: 10px;
+}
+
+
+/****** informations ***********/
+.informations {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.fa-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border:1px #D9D9D9 solid;
+    border-radius:50%;
+    margin-right: 10px;
+}
+
 /****** Hebergements And Populaires ***********/
 .hebergements-and-populaires {
     display: flex;
@@ -74,11 +231,61 @@ a {
 /****** Hebergements ***********/
 .hebergements {
     width: 65%;
+    height: 640px;
+    margin-bottom: 40px;
+}
+
+.hebergements-cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hebergements a {
+    width: 30%;
+    margin-top: 33px;
+}
+
+.hebergements .card {
+    width: 100%;
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+    height: 120px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.hebergements-cards .card-content {
+    padding-left: 15px;
+}
+
+.hebergements-cards .card-title {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.hebergements-cards .card-subtitle {
+    margin: 0;
+}
+
+.hebergements-cards .card-rating {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.afficher-plus {
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 30px;
 }
 
 /****** Populaires ***********/
 .populaires {
     width: 32%;
+    margin-bottom: 40px;
 }
 
 .populaires-title {
@@ -97,6 +304,7 @@ a {
     height: 136px;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    border-top-right-radius: 0px;
 }
 
 .populaires-cards .card-content {
@@ -120,6 +328,58 @@ a {
 .populaires-cards .card-rating {
     margin-bottom: 5px;
 }
+
+/****** Activites ***********/
+.activites-marseille {
+    margin: 30px;
+}
+.activites-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 33px;
+}
+
+.activites-cards a {
+    width: 22%;
+}
+
+.activites-cards .card {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 5px;
+}
+
+.activites-cards img {
+    width: 100%;
+    height: 380px;
+}
+
+.activites-cards .card-title {
+    margin-left: 10px;
+}
+
+/****** Activites ***********/
+footer {
+    display: flex;
+    margin-top: 70px;
+    padding-left: 20px;
+    background-color: var(--main-bg-color);
+}
+
+.section-footer {
+    padding-right: 20%;
+}
+
+.section-footer ul {
+    list-style-type:none;
+    padding: 0;
+    margin: 0;
+}
+
+.section-footer li {
+    margin-bottom: 10%;
+}
+
 
 
 
@@ -159,9 +419,75 @@ a {
     .populaires-cards .card-subtitle {
         font-size: 13px;
     }
+
+    .activites-cards a {
+        width: 100%;
+    }
+
+    .activites-cards img {
+        height: 100%;
+    }
+
+    .activites-cards .card {
+        width: 90%;
+        height: 250px;
+        justify-content: center;
+    }
+
 }
 
 /* Small devices (phones, less than 768px) */
 @media (max-width: 767.98px) {
-    /* ... */
+
+    .main-container {
+        padding: 0 10px;
+    }
+
+    /* Header */
+
+    .header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .logo-booki {
+        margin: 0;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Filtres */
+    
+    .filtres { 
+        display: block;
+        flex-direction: column;
+    }
+
+    .filtres p {
+        font-weight: 700;
+    }
+
+    .filtres .picto-filtres {
+        font-weight: 700;
+    }
+
+    .filtres ul {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        margin: 0;
+    }
+
+    .filtres li {
+        width: 35%;
+        margin: 0;
+    }
+
+
 }
